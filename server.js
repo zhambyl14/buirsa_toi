@@ -11,6 +11,12 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
+// Отправка главной страницы при обращении к корневому URL
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public/main.html');
+});
+
+// Обработка POST запросов на URL '/rsvp'
 app.post('/rsvp', (req, res) => {
     const { name, attendance } = req.body;
 
@@ -35,7 +41,7 @@ app.post('/rsvp', (req, res) => {
     XLSX.utils.book_append_sheet(workbook, worksheet, 'RSVP');
     XLSX.writeFile(workbook, filePath);
 
-    res.send('Ответ сохранен.');//sdsdsd
+    res.send('Ответ сохранен.');
 });
 
 app.listen(port, () => {
