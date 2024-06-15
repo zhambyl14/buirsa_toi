@@ -11,12 +11,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-// Отправка главной страницы при обращении к корневому URL
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/main.html');
-});
-
-// Обработка POST запросов на URL '/rsvp'
 app.post('/rsvp', (req, res) => {
     const { name, attendance } = req.body;
 
@@ -30,7 +24,14 @@ app.post('/rsvp', (req, res) => {
 
     if (fs.existsSync(filePath)) {
         workbook = XLSX.readFile(filePath);
-        worksheet = workbook.Sheets[workbook.SheetNames[0]];
+        const sheetNames = workbook.SheetNames;
+
+        // Проверяем, существует ли лист 'RSVP'
+        if (sheetNames.includes('RSVP')) {
+            worksheet = workbook.Sheets['RSVP'];
+        } else {
+            worksheet = XLSX.utils.aoa_to_sheet([['Имя', 'Придет']]);
+        }
     } else {
         workbook = XLSX.utils.book_new();
         worksheet = XLSX.utils.aoa_to_sheet([['Имя', 'Придет']]);
@@ -38,7 +39,7 @@ app.post('/rsvp', (req, res) => {
 
     XLSX.utils.sheet_add_aoa(worksheet, [[name, attendance]], { origin: -1 });
 
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'RSVP');
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'RSVP', { overwrite: true });
     XLSX.writeFile(workbook, filePath);
 
     res.send('Ответ сохранен.');
