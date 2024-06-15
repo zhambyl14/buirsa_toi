@@ -9,6 +9,7 @@ const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static('public'));
 
 app.post('/rsvp', (req, res) => {
     const { name, attendance } = req.body;
@@ -34,9 +35,9 @@ app.post('/rsvp', (req, res) => {
     XLSX.utils.book_append_sheet(workbook, worksheet, 'RSVP');
     XLSX.writeFile(workbook, filePath);
 
-    res.send('Ответ сохранен.');
+    res.send('Ответ сохранен.');//sdsdsd
 });
 
 app.listen(port, () => {
-    console.log(`Сервер запущен на http://localhost:${port}`);
+    console.log(`Сервер запущен на порту ${port}`);
 });

@@ -37,7 +37,7 @@ function submitRSVP(isAttending) {
     }
     const attendance = isAttending ? 'Да' : 'Нет';
 
-    fetch('https://your-heroku-app.herokuapp.com/rsvp', {
+    fetch('/rsvp', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
