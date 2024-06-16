@@ -1,7 +1,13 @@
+
 document.addEventListener("DOMContentLoaded", function () {
   var musicControl = document.getElementById("music-control");
   var backgroundMusic = document.getElementById("background-music");
+  var musicTooltip = document.getElementById("music-tooltip");
+   // Show the music tooltip initially
+   musicTooltip.style.display = 'block';
 
+   // Hide the tooltip after 5 seconds or on first click
+   setTimeout
   // Try to play the music
   backgroundMusic.play().then(() => {
     musicControl.classList.add("rotating");

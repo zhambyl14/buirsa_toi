@@ -127,13 +127,17 @@
     </div>
     <img src="photo/right_side.png" alt="Right Side Decoration" class="right-side-element">
   </div>
-  <!-- Музыкальный плеер -->
-  <audio id="background-music" loop>
+   <!-- Музыкальный плеер -->
+   <audio id="background-music" loop>
     <source src="music/back_music.mp3" type="audio/mpeg">
     Ваш браузер не поддерживает воспроизведение музыки.
   </audio>
   <!-- Кнопка для управления музыкой -->
   <button id="music-control" class="music-button"></button>
+  <!-- Tooltip for the music button -->
+  <div id="music-tooltip" class="music-tooltip">
+    Әуен👇🏻 🎵 
+  </div>
 
   <script>
     AOS.init();

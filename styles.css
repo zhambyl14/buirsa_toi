@@ -106,6 +106,18 @@ h2, h3 {
   animation: rotation 2s infinite linear;
 }
 
+/* Стили для всплывающей подсказки */
+.music-tooltip {
+  position: fixed;
+  bottom: 90px;
+  right: 10px;
+  background-color: transparent;
+  color: #051149;
+  border-radius: 5px;
+  display: none;
+  z-index: 1001;
+}
+
 @keyframes rotation {
   from {
     transform: rotate(0deg);
