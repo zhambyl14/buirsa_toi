@@ -1,5 +1,5 @@
 body {
-  font-family: 'Christmas ScriptC', Arial, sans-serif;
+  font-family: 'The Mumbai Sticker Demo Shadow', Arial, sans-serif;
   background-image: url('photo/36.png');
   background-size: cover;
   background-attachment: fixed;
@@ -28,7 +28,7 @@ body {
 .content {
   position: relative;
   min-height: 100vh;
-  padding-bottom: 200px; /* Space for the right-side element */
+  padding-bottom: 100px; /* Space for the right-side element */
 }
 
 .container {
@@ -39,13 +39,78 @@ body {
   margin-top: -150px;
 }
 
+h2, h3 {
+  font-family: 'Times New Roman', cursive;
+  color: #051149;
+}
+
 .text_1 {
-  font-family: 'Christmas ScriptC', cursive;
+  font-family: 'The Mumbai Sticker Demo Shadow', cursive;
   color: #051149;
   font-weight: bold;
 }
 
-.text_2 {
-  font-family: 'Christmas ScriptC';
-  color: #051149;
+.button {
+  background-image: url('photo/button_1.png');
+  width: auto; /* Автоматический размер кнопки по содержимому */
+  height: 60px; /* Высота кнопки */
+  line-height: 60px; /* Высота кнопки для вертикального центрирования текста */
+  color: #ffffff;
+  font-family: 'The Mumbai Sticker Demo Shadow', cursive;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.icons a {
+  display: block;
+  width: 50px; /* Размер иконки */
+  height: 50px;
+  margin: 0 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.inst {
+  background-image: url('photo/inst.png');
+}
+
+.gis {
+  background-image: url('photo/gis.jpg');
+}
+
+/* Стили для музыкальной кнопки */
+.music-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-image: url('photo/music2.png');
+  background-size: cover;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.music-button:focus {
+  outline: none;
+}
+
+.music-button.rotating {
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

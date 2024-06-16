@@ -7,44 +7,78 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="christmasscript.css"> <!-- Подключаем файл со шрифтом -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="script.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="script.js"></script>
 </head>
 <body>
   <img src="photo/left_side.png" alt="Left Side Decoration" class="left-side-element">
   <div class="content">
     <div class="container text-center">
-      <div class="circle-container">
+      <div class="circle-container" data-aos="fade-up">
         <div class="circle-text">
-          <h2 class="text_1">Ә д і л ❤️ А р а й л ы м</h2>
+          <h2 class="text_1">Әділ ❤️ Арайлым</h2>
         </div>
         <div class="photo">
           <img src="photo/logo_wedding.png" alt="Wedding Photo" class="img-fluid" id="wedding-photo">
         </div>
       </div>
-      <div class="text_2">
-        <h2>Құрметті қонақтар!</h2>
-        <h3>Сіздерді балаларымыз Әділ мен Арайлымның үйлену тойына арналған салтанатты дастарқанымыздың
+      <br>
+      <h2><strong>Құрметті қонақтар!</strong></h2>
+      <div class="text_3" data-aos="fade-up">
+        <br>
+        <h3>Сіздерді Әділ мен Арайлымның үйлену тойына арналған салтанатты дастарқанымыздың
           қадірлі қонағы болуларыңызға шақырамыз.</h3>
       </div>
-      <div id="countdown"></div>
-      <h3>19 Августа 2024</h3>
-      <div id="calendar" class="my-4"></div>
-      <form id="rsvp-form" class="my-4">
+      <br>
+      <h3><strong>Той уақыты:</strong></h3>
+      <h4 class="button" data-aos="fade-up">19 тамыз 2024 сағат 21:00</h4>
+      <div id="countdown" data-aos="fade-up"></div>
+      <br>
+      <h3><strong>Той иелері</strong></h3>
+      <h2><strong>Смаил & Ақгүл </strong></h2>
+      <br>
+      <div data-aos="fade-up">
+        <h3><strong>Өтетін орны: </strong></h3>
+        <h4>Тараз, микрорайон Каратау, 46</h4><h4>Ресторан "Молдир"</h4>
+        <div class="icons">
+          <a href="https://www.instagram.com/restoran_moldir/?hl=ru" class="inst" target="_blank"></a>
+          <a href="https://go.2gis.com/n3m4h" class="gis" target="_blank"></a>
+        </div>
+        <br>
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5dfbb0e108ed805909e06fbb3addfd4b9cbf67780f6600bc74c70b390d5f59ea&amp;width=100%25&amp;height=484&amp;lang=ru_RU&amp;scroll=true"></script>
+      </div>
+      <br>
+      <div id="calendar" class="my-4" data-aos="fade-up"></div>
+      <form id="rsvp-form" class="my-4" data-aos="fade-up">
         <div class="form-group">
-          <label for="name">Имя:</label>
+          <label for="name"><h3><strong>Есіміңіз: </strong></h3></label>
           <input type="text" id="name" class="form-control">
         </div>
         <div class="form-group">
-          <label>Вы придёте?</label><br>
-          <button type="button" class="btn btn-success btn-custom" onclick="submitRSVP(true)">Да</button>
-          <button type="button" class="btn btn-danger btn-custom" onclick="submitRSVP(false)">Нет</button>
+          <label>Тойға келесіз бе?</label><br>
+          <button type="button" class="btn btn-success btn-custom" onclick="submitRSVP(true)">Я</button>
+          <button type="button" class="btn btn-danger btn-custom" onclick="submitRSVP(false)">Жоқ</button>
         </div>
       </form>
+      <h3><strong>Сіздерді асыға күтеміз!</strong></h3>
     </div>
     <img src="photo/right_side.png" alt="Right Side Decoration" class="right-side-element">
   </div>
+  <!-- Музыкальный плеер -->
+  <audio id="background-music" loop>
+    <source src="music/back_music.mp3" type="audio/mpeg">
+    Ваш браузер не поддерживает воспроизведение музыки.
+  </audio>
+  <!-- Кнопка для управления музыкой -->
+  <button id="music-control" class="music-button"></button>
+
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
+
