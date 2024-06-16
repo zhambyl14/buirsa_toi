@@ -32,7 +32,7 @@ body {
 }
 
 .container {
-  font-family: 'The Mumbai Sticker Demo Shadow', Arial, sans-serif;
+  font-family: 'The Mumbai Sticker Demo Shadow', cursive;
   background-color: transparent;
   padding: 0px;
   border-radius: 10px;
@@ -40,12 +40,12 @@ body {
 }
 
 h2, h3 {
-  font-family: 'The Mumbai Sticker Demo Shadow', Arial, sans-serif;
+  font-family: 'Times New Roman', cursive;
   color: #051149;
 }
 
 .text_1 {
-  font-family: 'The Mumbai Sticker Demo Shadow', Arial, sans-serif;
+  font-family: 'The Mumbai Sticker Demo Shadow', cursive;
   color: #051149;
   font-weight: bold;
 }
@@ -56,7 +56,7 @@ h2, h3 {
   height: 60px; /* Высота кнопки */
   line-height: 60px; /* Высота кнопки для вертикального центрирования текста */
   color: #ffffff;
-  font-family: 'The Mumbai Sticker Demo Shadow', Arial, sans-serif;
+  font-family: 'The Mumbai Sticker Demo Shadow', cursive;
 }
 
 .icons {
