@@ -114,3 +114,23 @@ h2, h3 {
     transform: rotate(360deg);
   }
 }
+
+#invitation-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#invitation-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+#download-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}

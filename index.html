@@ -53,7 +53,7 @@
       </div>
       <br>
       <div id="calendar" class="my-4" data-aos="fade-up"></div>
-      <form id="rsvp-form" class="my-4" data-aos="fade-up">
+      <form id="rsvp-form" class="my-4">
         <div class="form-group">
           <label for="name"><h3><strong>Есіміңіз: </strong></h3></label>
           <input type="text" id="name" class="form-control">
@@ -64,6 +64,65 @@
           <button type="button" class="btn btn-danger btn-custom" onclick="submitRSVP(false)">Жоқ</button>
         </div>
       </form>
+      <div id="invitation-container" style="display:none;">
+        <img id="invitation-image" src="" alt="Invitation">
+        <a id="download-link" href="" download="invitation.jpg">Жүктеп алу</a>
+      </div>
+
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+  function submitRSVP(isAttending) {
+    const name = document.getElementById('name').value;
+    if (name === '') {
+      alert('Есіміңізді жазыңыз');
+      return;
+    }
+    if (isAttending) {
+      generateInvitation(name);
+    } else {
+      alert('Сіздің тойға келмейтіндігіңіз үшін өкініш білдіреміз.');
+    }
+  }
+
+  function generateInvitation(name) {
+    const invitationText = `Құрметті <strong>${name}</strong>,\nСізді Әділ мен Арайлымның үйлену тойына арналған салтанатты дастарқанымыздың қадірлі қонағы болуларыңызға шақырамыз.\n<strong>Той уақыты:</strong> 19 тамыз 2024 сағат 21:00`;
+    const invitationContainer = document.createElement('div');
+    invitationContainer.style.width = '600px';
+    invitationContainer.style.height = '400px';
+    invitationContainer.style.backgroundImage = 'url("photo/36.png")';
+    invitationContainer.style.backgroundSize = 'cover';
+    invitationContainer.style.color = '#051149';
+    invitationContainer.style.display = 'flex';
+    invitationContainer.style.flexDirection = 'column';
+    invitationContainer.style.justifyContent = 'center';
+    invitationContainer.style.alignItems = 'center';
+    invitationContainer.style.textAlign = 'center';
+    invitationContainer.style.padding = '20px';
+    invitationContainer.innerHTML = `
+      <h2>Әділ ❤️ Арайлым</h2>
+      <br>
+      <h3>${invitationText.replace(/\n/g, '<br>')}</h3>
+      <h3><strong>Той иелері:</strong> Смаил & Ақгүл</h3>
+      <br>
+      <h3><strong>Өтетін орны: </strong>Тараз, микрорайон Каратау, 46, Ресторан "Мөлдір"</h3>
+    `;
+
+    document.body.appendChild(invitationContainer);
+
+    html2canvas(invitationContainer).then(canvas => {
+      const imgData = canvas.toDataURL('image/jpeg');
+      const invitationImage = document.getElementById('invitation-image');
+      invitationImage.src = imgData;
+      document.getElementById('invitation-container').style.display = 'block';
+      document.getElementById('download-link').href = imgData;
+      
+      document.body.removeChild(invitationContainer);
+    });
+  }
+</script>
+   
       <h3><strong>Сіздерді асыға күтеміз!</strong></h3>
     </div>
     <img src="photo/right_side.png" alt="Right Side Decoration" class="right-side-element">
