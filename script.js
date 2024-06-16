@@ -2,11 +2,19 @@ document.addEventListener("DOMContentLoaded", function () {
   var musicControl = document.getElementById("music-control");
   var backgroundMusic = document.getElementById("background-music");
 
-  // Запускаем музыку по умолчанию
-  backgroundMusic.play();
-  musicControl.classList.add("rotating");
+  // Try to play the music
+  backgroundMusic.play().then(() => {
+    musicControl.classList.add("rotating");
+  }).catch((error) => {
+    // Handle the error if autoplay fails
+    console.log("Autoplay was prevented:", error);
+    document.body.addEventListener('click', function () {
+      backgroundMusic.play();
+      musicControl.classList.add("rotating");
+    }, { once: true });
+  });
 
-  // Добавляем обработчик события для кнопки управления музыкой
+  // Add click event to the music control button
   musicControl.addEventListener("click", function () {
     if (backgroundMusic.paused) {
       backgroundMusic.play();
@@ -16,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
       musicControl.classList.remove("rotating");
     }
   });
+
 
   AOS.init();
 
