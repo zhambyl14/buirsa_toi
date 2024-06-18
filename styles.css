@@ -1,34 +1,35 @@
 body {
   font-family: 'Times New Roman', cursive;
-  background-image: url('photo/36.png');
+  background-image: url('photo/366.png');
   background-size: cover;
   background-attachment: fixed;
   position: relative;
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  color: #051149;
+  color: #24610e;
 }
 
 .left-side-element {
   top: 0;
   left: 0;
-  max-width: 200px;
+  max-width: 300px;
   z-index: 10;
+  margin-top: -100px;
+  margin-left: -100px;
 }
 
 .right-side-element {
   position: absolute;
   bottom: 0;
-  right: 0;
-  max-width: 200px;
-  z-index: 10;
+  right: 0; 
+  z-index: -1;
 }
 
 .content {
   position: relative;
   min-height: 100vh;
-  padding-bottom: 100px; /* Space for the right-side element */
+  padding-bottom: 40px; /* Space for the right-side element */
 }
 
 .container {
@@ -41,17 +42,18 @@ body {
 
 h2, h3 {
   font-family: 'Times New Roman', cursive;
-  color: #051149;
+  color: #24610e;
 }
 
 .text_1 {
   font-family: 'Times New Roman', cursive;
-  color: #051149;
+  color: #000000;
   font-weight: bold;
+  margin-top: -170px;
 }
 
 .button {
-  background-image: url('photo/button_1.png');
+  background-color: #28a745;
   width: auto; /* Автоматический размер кнопки по содержимому */
   height: 60px; /* Высота кнопки */
   line-height: 60px; /* Высота кнопки для вертикального центрирования текста */
@@ -112,7 +114,7 @@ h2, h3 {
   bottom: 90px;
   right: 10px;
   background-color: transparent;
-  color: #051149;
+  color: #24610e;
   border-radius: 5px;
   display: none;
   z-index: 1001;

@@ -6,21 +6,65 @@
   <title>Үйлену той</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="christmasscript.css"> <!-- Подключаем файл со шрифтом -->
+  <link rel="stylesheet" href="christmasscript.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAiOLfml7cXLaXqhgvs441_1af1Lc2NAbI",
+      authDomain: "shaqyrtu-9bb3c.firebaseapp.com",
+      databaseURL: "https://shaqyrtu-9bb3c-default-rtdb.firebaseio.com",
+      projectId: "shaqyrtu-9bb3c",
+      storageBucket: "shaqyrtu-9bb3c.appspot.com",
+      messagingSenderId: "651783157339",
+      appId: "1:651783157339:web:be03543aaf434e307ef17e"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    function submitRSVP(isAttending) {
+      const name = document.getElementById('name').value;
+      if (name === '') {
+        alert('Есіміңізді жазыңыз');
+        return;
+      }
+      if (isAttending) {
+        generateInvitation(name);
+        saveRSVP(name, true);
+      } else {
+        alert('Сіздің тойға келмейтіндігіңіз үшін өкініш білдіреміз.');
+        saveRSVP(name, false);
+      }
+    }
+
+    function saveRSVP(name, isAttending) {
+      const rsvpRef = ref(database, 'rsvps/' + name);
+      set(rsvpRef, {
+        attending: isAttending
+      });
+    }
+  </script>
   <script src="script.js"></script>
 </head>
 <body>
-  <img src="photo/left_side.png" alt="Left Side Decoration" class="left-side-element">
+  <img src="photo/left_side_2.png" alt="Left Side Decoration" class="left-side-element">
   <div class="content">
     <div class="container text-center">
       <div class="circle-container" data-aos="fade-up">
         <div class="circle-text">
-          <h2 class="text_1">Әділ ❤️ Арайлым</h2>
+          <h3 class="text_1">Әділ & Арайлым</h3>
         </div>
         <div class="photo">
           <img src="photo/logo_wedding.png" alt="Wedding Photo" class="img-fluid" id="wedding-photo">
@@ -125,7 +169,7 @@
    
       <h3><strong>Сіздерді асыға күтеміз!</strong></h3>
     </div>
-    <img src="photo/right_side.png" alt="Right Side Decoration" class="right-side-element">
+    <img src="photo/right_side_2.png" alt="Right Side Decoration" class="right-side-element">
   </div>
    <!-- Музыкальный плеер -->
    <audio id="background-music" loop>
